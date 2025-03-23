@@ -1,5 +1,5 @@
-import Banner from "@/components/Banner";
-import HomeFooter from "@/components/HomeFooter";
+import Banner from "@/components/HomePage/Banner";
+import HomeFooter from "@/components/HomePage/HomeFooter";
 
 export default function Home() {
   return (
