@@ -6,7 +6,7 @@ export default function Banner () {
         <div>
             <div className='block p-1 m-0 w-screen h-[80vh] relative'>
                 <Image 
-                    src="/img/banner.png"
+                    src="/img/banner.jpg"
                     alt='banner'
                     fill={true}
                     priority

@@ -9,7 +9,7 @@
     border-top: 1px solid lightgrey;
     border-bottom: 1px solid lightgrey;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
 }
 
 .logoimg {
@@ -17,9 +17,17 @@
     width: auto;
 }
 
+.homeicon {
+    height: 20px;
+    width: auto;
+}
+
 .itemcontainer {
-    width: 120px;
+    width: auto;
+    padding-left: 10px;
+    padding-right: 10px;
     text-align: center;
+    align-items: center;
     margin-top: auto;
     margin-bottom: auto;
     font-family: Verdana, Geneva, Tahoma, sans-serif;

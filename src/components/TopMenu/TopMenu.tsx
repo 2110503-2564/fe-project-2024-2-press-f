@@ -11,17 +11,30 @@ export default async function TopMenu () {
 
     return (
         <div className={styles.menucontainer}>
-            <Image src={'/img/logo.png'}
-                className={styles.logoimg}
-                alt='logo'
-                width={0}
-                height={0}
-                sizes='100vh'
-            />
-            <TopMenuItem title='Booking'
-                pageRef='/booking'
-            />
-            <div className='flex flex-row absolute left-0 h-full pl-2'>
+
+            <div className='flex flex-row absolute left-2 h-full pl-2'>
+                <Image src={'/img/logo.jpg'}
+                    className={styles.logoimg}
+                    alt='logo'
+                    width={0}
+                    height={0}
+                    sizes='100vh'
+                />
+                <div className='flex justify-center items-center px-5'>
+                    <Link href="/" >
+                        <img src="/img/homeicon.png" className={styles.homeicon}/>
+                    </Link>
+                </div>
+                <TopMenuItem title='Job'
+                    pageRef='/venue'
+                />
+                <TopMenuItem title='Booking'
+                    pageRef='/booking'
+                />
+            </div>
+
+            <div className='flex flex-row absolute right-5 h-full'>
+                <TopMenuItem title='MyBooking' pageRef='/mybooking'/>
                 {
                     session? 
                     <Link href="/api/auth/signout">
@@ -37,7 +50,6 @@ export default async function TopMenu () {
                         
                     </Link>
                 }
-                <TopMenuItem title='MyBooking' pageRef='/mybooking'/>
             </div>
             
         </div>
