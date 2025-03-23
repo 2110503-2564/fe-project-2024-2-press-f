@@ -59,7 +59,7 @@ export default function CardPanel() {
                             <Link href={`/venue/${venueItem.id}`} 
                                 className="w-1/5"
                             >
-                                <Card venueName={venueItem.name} imgSrc={venueItem.picture}
+                                <Card companyName={venueItem.name} imgSrc={venueItem.picture}
                                     onRating = { (venue:string, rating:number) => 
                                         dispatchCard({type:'add', venueName:venue, rating:rating}) 
                                     }

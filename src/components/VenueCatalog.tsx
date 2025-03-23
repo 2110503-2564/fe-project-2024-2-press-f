@@ -11,16 +11,20 @@ export default async function VenueCatalog({venuesJson}: {venuesJson:VenueJson})
             Explore {venueJsonReady.count} fabulous venues in our catalog
             
 
-            <div style={{margin:"20px", display:"flex", 
-                flexDirection:"row", alignContent:"space-around", 
-                justifyContent:"space-around", flexWrap:"wrap", padding:"10px"}}
-            >
+            <div style={{
+                margin: "20px",
+                display: "flex",
+                flexDirection: "column", // เปลี่ยนเป็นแนวตั้ง
+                alignItems: "center", // จัดให้อยู่ตรงกลางในแนวขวาง
+                justifyContent: "space-around", // กระจายช่องว่างระหว่าง element
+                padding: "10px",gap: "20px"
+            }}>
                 {
                     venueJsonReady.data.map((venueItem:VenueItem) => (
                         <Link href={`/venue/${venueItem.id}`} 
                             className="w-1/5"
                         >
-                            <Card venueName={venueItem.name} imgSrc={venueItem.picture} />
+                            <Card companyName={venueItem.name} imgSrc={venueItem.picture} />
                         </Link>
                     ))
                 }

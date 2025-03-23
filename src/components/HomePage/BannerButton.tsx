@@ -9,7 +9,7 @@ export default function BannerButton() {
     return (
         <button className="rounded-lg bg-primary mt-10 py-2 px-5 text-white
             hover:shadow-xl hover:shadow-secondary"
-            onClick={(e) => { e.stopPropagation(); router.push('/venue') }}
+            onClick={(e) => { e.stopPropagation(); router.push('/company') }}
         >
             Explore
         </button> 
