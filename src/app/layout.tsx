@@ -24,7 +24,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`bg-background ${inter.className}`}>
         <ReduxProvider>
         <NextAuthProvider session={session}>
           <TopMenu/>
