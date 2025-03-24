@@ -8,7 +8,6 @@ export default async function CompanyCatalog({companysJson}: {companysJson:Compa
 
     return (
         <>
-            Explore {companyJsonReady.count} fabulous companies in our catalog
             
 
             <div style={{

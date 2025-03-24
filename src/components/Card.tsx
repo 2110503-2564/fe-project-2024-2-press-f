@@ -12,7 +12,7 @@ export default function Card({companyName, imgSrc, onRating} : {companyName:stri
 
     return (
         <InteractiveCard contentName={companyName}>
-            <div className='w-full h-[70%] relative rounded-t-lg'>
+            <div className='w-full h-[70%] relative rounded-t-lg '>
                 <Image 
                     src={imgSrc}
                     alt='Company Picture'
