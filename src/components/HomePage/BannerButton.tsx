@@ -1,17 +1,16 @@
 'use client'
 
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function BannerButton() {
-
-    const router = useRouter();
-
     return (
-        <button className="rounded-lg bg-primary mt-10 py-2 px-5 text-white
+        <div className='mt-10'>
+            <Link className="rounded-lg bg-primary py-2 px-5 text-white
             hover:shadow-xl hover:shadow-secondary"
-            onClick={(e) => { e.stopPropagation(); router.push('/company') }}
+            href='/company'
         >
             Explore
-        </button> 
+        </Link>
+        </div>
     )
 }
