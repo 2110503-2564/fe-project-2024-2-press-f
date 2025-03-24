@@ -28,10 +28,16 @@ export interface BookingItem {
 
 export interface InterviewItem {
   _id: string,
-  interviewDate: Date,
+  interviewDate: string,
   user: string,
-  company: string,
-  createdAt: Date,
+  company: {
+    _id: string,
+    name: string,
+    description: string,
+    tel: string,
+    id: string,
+  }
+  createdAt: string,
   __v: number
 }
 

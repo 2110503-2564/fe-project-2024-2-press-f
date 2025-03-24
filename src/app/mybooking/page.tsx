@@ -1,11 +1,18 @@
-'use client'
+import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions"
+import { getServerSession } from "next-auth"
+import getInterviews from "@/libs/getInterviews"
+import InterviewList from "@/components/interview/InterviewList"
 
-import BookingList from "@/components/BookingList"
+export default async function MyBookingPage() {
 
-export default function MyBookingPage() {
+    const session = await getServerSession(authOptions)
+    if (!session || !session.user.token) return null
+
+    const interview = await getInterviews(session.user.token)
+
     return (
         <main>
-            <BookingList></BookingList>
+            <InterviewList interviewJson={interview}/>
         </main>
     )
 }
