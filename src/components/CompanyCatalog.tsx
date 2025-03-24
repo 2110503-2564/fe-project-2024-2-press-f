@@ -17,6 +17,7 @@ export default async function CompanyCatalog({companysJson}: {companysJson:Compa
                 alignItems: "center",
                 justifyContent: "space-around", 
                 padding: "10px"
+                
             }}>
                 {
                     companyJsonReady.data.map((companyItem:CompanyItem) => (

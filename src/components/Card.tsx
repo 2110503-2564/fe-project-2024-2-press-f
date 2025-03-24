@@ -18,6 +18,7 @@ export default function Card({companyName, imgSrc, onRating} : {companyName:stri
                     alt='Company Picture'
                     fill={true}
                     className='object-cover rounded-t-lg'
+                    priority
                 />
             </div>
             <div className='w-full h-[15%] p-[10px]'>
