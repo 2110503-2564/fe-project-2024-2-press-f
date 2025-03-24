@@ -1,9 +1,9 @@
-import getVenue from "@/libs/getVenue"
+import getCompany from "@/libs/getVenue"
 import Image from "next/image"
 
-export default async function VenueDetailPage( {params} : { params: {vid:string} } ) {
+export default async function CompanyDetailPage( {params} : { params: {vid:string} } ) {
 
-    const venueDetail = await getVenue(params.vid)
+    const companyDetail = await getCompany(params.vid)
 
     /**
      *  Mock Data
@@ -16,21 +16,22 @@ export default async function VenueDetailPage( {params} : { params: {vid:string}
     return (
         <main className="text-center p-5">
             <div className="text-3xl text-center my-5">
-                { venueDetail.data.name }
+                { companyDetail.data.name }
             </div>
             <div className="flex flex-row my-10">
-                <Image src={ venueDetail.data.picture }
-                    alt="Venue Image"
+                <Image src={ companyDetail.data.picture }
+                    alt="Company Image"
                     width={0} 
                     height={0}
                     sizes="100vw"
                     className="rounded-lg w-[30%]"
                 />
                 <div className="text-md mx-5 text-left"> 
-                    <div> Name: { venueDetail.data.name } </div>
-                    <div> Address: { venueDetail.data.address } { venueDetail.data.province } { venueDetail.data.postalcode } </div>
-                    <div> Tel: { venueDetail.data.tel } </div>
-                    <div> Daily Rate: { venueDetail.data.dailyrate } </div>
+                    <div> Name : { companyDetail.data.name } </div>
+                    <div> Address : { companyDetail.data.address } { companyDetail.data.province } { companyDetail.data.postalcode } </div>
+                    <div> Website :{ companyDetail.data.website }</div>
+                    <div> Description : { companyDetail.data.descrition }</div>
+                    <div> Tel: { companyDetail.data.tel } </div>
                 </div>
             </div>
         </main>

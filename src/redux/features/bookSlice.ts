@@ -14,7 +14,7 @@ export const bookSlice = createSlice({
         addBooking: (state, action:PayloadAction<BookingItem>) => {
             const existingBookingIndex = state.bookItems.findIndex(
                 (item) =>
-                    item.venue === action.payload.venue &&
+                    item.company === action.payload.company &&
                     item.bookDate === action.payload.bookDate
             );
 
@@ -28,7 +28,7 @@ export const bookSlice = createSlice({
             const remainItems = state.bookItems.filter(obj => {
                 return ((obj.nameLastname !== action.payload.nameLastname)
                 || (obj.tel !== action.payload.tel)
-                || (obj.venue !== action.payload.venue)
+                || (obj.company !== action.payload.company)
                 || (obj.bookDate !== action.payload.bookDate));
             })
             state.bookItems = remainItems
