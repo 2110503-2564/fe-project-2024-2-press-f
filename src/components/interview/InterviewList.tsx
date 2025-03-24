@@ -2,8 +2,10 @@
 import { alertClasses } from "@mui/material";
 import { InterviewItem, InterviewJson } from "../../../interface";
 import dayjs from "dayjs";
+import DeleteComponent from "./DeleteComponent";
+import UpdateComponent from "./UpdateComponent";
 
-export default function InterviewList( {interviewJson}:{interviewJson:InterviewJson} ) {
+export default function InterviewList( {interviewJson, token}:{interviewJson:InterviewJson, token:string} ) {
 
     function formatDate(dateString: string): string {
         return dayjs(dateString).format('YYYY/MM/DD HH:mm');
@@ -21,18 +23,8 @@ export default function InterviewList( {interviewJson}:{interviewJson:InterviewJ
                             <tr><td>Created:</td><td>{formatDate(interveiwItem.createdAt)}</td></tr>
                         </tbody></table>
                         <div className="flex flex-row gap-2">
-                            <button className="block rounded-md bg-primary hover:bg-accent px-2 py-2 text-white shadow-sm">
-                                Update Interview
-                            </button>
-                            <button className="block rounded-md bg-primary hover:bg-accent px-2 py-2 text-white shadow-sm"
-                            onClick={()=>{
-                                const isConfirm = window.confirm(`Do you want to cancel the interview with ${interveiwItem.company.name}?`)
-                                if (isConfirm) {
-                                    alert('Delete')
-                                }
-                            }}>
-                                Cancel Interview
-                            </button>
+                            <UpdateComponent interviewId={interveiwItem._id} token={token}/>
+                            <DeleteComponent interviewId={interveiwItem._id} token={token}/>
                         </div>
                     </div>
                 ))
