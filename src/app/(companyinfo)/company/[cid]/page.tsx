@@ -1,5 +1,5 @@
 'use client'
-import getCompany from "@/libs/getVenue"
+import getCompany from "@/libs/getCompany"
 import Image from "next/image"
 import DateReserve from "@/components/DateReserve";
 import { AppDispatch } from "@/redux/store";
@@ -10,9 +10,9 @@ import { useDispatch } from "react-redux";
 import { BookingItem } from "../../../../../interface";
 import { addBooking } from "@/redux/features/bookSlice";
 
-export default async function CompanyDetailPage( {params} : { params: {vid:string} } ) {
+export default async function CompanyDetailPage( {params} : { params: {cid:string} } ) {
 
-    const companyDetail = await getCompany(params.vid)
+    const companyDetail = await getCompany(params.cid)
     
 
     /**
@@ -40,7 +40,7 @@ export default async function CompanyDetailPage( {params} : { params: {vid:strin
                     <div> Name : { companyDetail.data.name } </div>
                     <div> Address : { companyDetail.data.address } { companyDetail.data.province } { companyDetail.data.postalcode } </div>
                     <div> Website :{ companyDetail.data.website }</div>
-                    <div> Description : { companyDetail.data.descrition }</div>
+                    <div> Description : { companyDetail.data.description }</div>
                     <div> Tel: { companyDetail.data.tel } </div>
                 </div>
             </div>
