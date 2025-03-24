@@ -3,40 +3,40 @@
 import Card from "./Card"
 import { useReducer, useState } from "react";
 import Link from "next/link";
-import { VenueItem, VenueJson } from "../../interface";
+import { CompanyItem, CompanyJson } from "../../interface";
 
 export default function CardPanel() {
 
-    const [venueResponse, setVenueResponse] = useState<VenueJson|null>(null)
+    const [companyResponse, setcompanyResponse] = useState<CompanyJson|null>(null)
 
-    let defaultVenue = new Map<string, number>([
+    let defaultcompany = new Map<string, number>([
         ["The Bloom Pavilion", 0],
         ["Spark Space", 0],
         ["The Grand Table", 0],
     ]);
 
     const cardReducer = (
-        venueList: Map<string, number>,
-        action: {type: string, venueName: string, rating?: number}
+        companyList: Map<string, number>,
+        action: {type: string, companyName: string, rating?: number}
     ) => {
         switch (action.type) {
             case 'add': {
-                const newValueList = new Map(venueList);
-                newValueList.set(action.venueName, action.rating??0);
+                const newValueList = new Map(companyList);
+                newValueList.set(action.companyName, action.rating??0);
                 return newValueList;
             }
             case 'remove': {
-                const newValueList = new Map(venueList);
-                newValueList.delete(action.venueName);
+                const newValueList = new Map(companyList);
+                newValueList.delete(action.companyName);
                 return newValueList;
             }
             default: {
-                return venueList;
+                return companyList;
             }
         }
     }
 
-    const [venueList, dispatchCard] = useReducer(cardReducer, defaultVenue);
+    const [companyList, dispatchCard] = useReducer(cardReducer, defaultcompany);
 
     /**
      * Mock Data 
@@ -55,13 +55,13 @@ export default function CardPanel() {
                 justifyContent:"space-around", flexWrap:"wrap"}}
             >
                 {
-                        venueResponse!.data.map((venueItem:VenueItem) => (   
-                            <Link href={`/venue/${venueItem.id}`} 
+                        companyResponse!.data.map((companyItem:CompanyItem) => (   
+                            <Link href={`/company/${companyItem.id}`} 
                                 className="w-1/5"
                             >
-                                <Card companyName={venueItem.name} imgSrc={venueItem.picture}
-                                    onRating = { (venue:string, rating:number) => 
-                                        dispatchCard({type:'add', venueName:venue, rating:rating}) 
+                                <Card companyName={companyItem.name} imgSrc={companyItem.picture}
+                                    onRating = { (company:string, rating:number) => 
+                                        dispatchCard({type:'add', companyName:company, rating:rating}) 
                                     }
                                 />
                             </Link>
@@ -70,14 +70,14 @@ export default function CardPanel() {
                 }
             </div>
 
-            <div className="w-full text-xl font-medium"> Venue List with Ratings : {venueList.size} </div>
+            <div className="w-full text-xl font-medium"> Company List with Ratings : {companyList.size} </div>
 
-            {Array.from(venueList).map(([venueName, rating]) => 
-                <div data-testid={venueName} 
-                    key={venueName} 
-                    onClick={() => dispatchCard({type:'remove', venueName})}
+            {Array.from(companyList).map(([companyName, rating]) => 
+                <div data-testid={companyName} 
+                    key={companyName} 
+                    onClick={() => dispatchCard({type:'remove', companyName})}
                 > 
-                    {venueName} : {rating}
+                    {companyName} : {rating}
                 </div>)}
         
         </div>

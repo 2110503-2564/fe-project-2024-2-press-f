@@ -1,14 +1,14 @@
 import Link from "next/link";
 import Card from "./Card";
-import { VenueItem, VenueJson } from "../../interface";
+import { CompanyItem, CompanyJson } from "../../interface";
 
-export default async function VenueCatalog({venuesJson}: {venuesJson:VenueJson}) {
+export default async function CompanyCatalog({companysJson}: {companysJson:CompanyJson}) {
 
-    const venueJsonReady = await venuesJson
+    const companyJsonReady = await companysJson
 
     return (
         <>
-            Explore {venueJsonReady.count} fabulous companies in our catalog
+            Explore {companyJsonReady.count} fabulous companies in our catalog
             
 
             <div style={{
@@ -20,11 +20,11 @@ export default async function VenueCatalog({venuesJson}: {venuesJson:VenueJson})
                 padding: "10px"
             }}>
                 {
-                    venueJsonReady.data.map((venueItem:VenueItem) => (
-                        <Link href={`/venue/${venueItem.id}`} 
+                    companyJsonReady.data.map((companyItem:CompanyItem) => (
+                        <Link href={`/company/${companyItem.id}`} 
                             className="w-1/5"
                         >
-                            <Card companyName={venueItem.name} imgSrc={venueItem.picture} />
+                            <Card companyName={companyItem.name} imgSrc={companyItem.picture} />
                         </Link>
                     ))
                 }

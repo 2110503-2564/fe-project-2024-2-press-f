@@ -35,7 +35,7 @@ export default function Booking() {
             const item:BookingItem = {
                 nameLastname: nameLastname,
                 tel: contactNumber,
-                venue: venue,
+                company: venue,
                 bookDate: dayjs(date).format("YYYY/MM/DD"),
             }
             dispatch(addBooking(item))
