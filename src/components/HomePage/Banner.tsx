@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-
 export default function Banner () {
     return (
         <div>
@@ -12,7 +11,7 @@ export default function Banner () {
                     alt='banner'
                     fill={true}
                     priority
-                    objectFit='cover'
+                    className="object-cover"
                 />
 
                 <div className='relative top-[100px] left-[80px] font-[Nunito Sans]'>
