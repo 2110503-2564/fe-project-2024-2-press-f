@@ -8,7 +8,6 @@ import { Link } from '@mui/material';
 export default async function TopMenu () {
 
     const session = await getServerSession(authOptions)
-    console.log("Session Data:", session);
 
     return (
         <div className={styles.menucontainer}>
@@ -40,7 +39,7 @@ export default async function TopMenu () {
                     session? 
                     <Link href="/api/auth/signout">
                         <div className='flex items-center h-full px-2 text-gray-500 text-sm'>
-                            Sign-Out of {session.user?.name}
+                            Sign-Out
                         </div>
                     </Link>
                     : 
