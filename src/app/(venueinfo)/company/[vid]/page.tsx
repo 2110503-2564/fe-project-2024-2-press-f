@@ -1,9 +1,19 @@
+'use client'
 import getCompany from "@/libs/getVenue"
 import Image from "next/image"
+import DateReserve from "@/components/DateReserve";
+import { AppDispatch } from "@/redux/store";
+import { MenuItem, Select, SelectChangeEvent, TextField } from "@mui/material";
+import dayjs, { Dayjs } from "dayjs";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { BookingItem } from "../../../../../interface";
+import { addBooking } from "@/redux/features/bookSlice";
 
 export default async function CompanyDetailPage( {params} : { params: {vid:string} } ) {
 
     const companyDetail = await getCompany(params.vid)
+    
 
     /**
      *  Mock Data
@@ -34,6 +44,7 @@ export default async function CompanyDetailPage( {params} : { params: {vid:strin
                     <div> Tel: { companyDetail.data.tel } </div>
                 </div>
             </div>
+            
         </main>
     )
 }
