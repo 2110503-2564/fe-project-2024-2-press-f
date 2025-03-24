@@ -8,7 +8,7 @@ export default async function VenueCatalog({venuesJson}: {venuesJson:VenueJson})
 
     return (
         <>
-            Explore {venueJsonReady.count} fabulous venues in our catalog
+            Explore {venueJsonReady.count} fabulous companies in our catalog
             
 
             <div style={{
