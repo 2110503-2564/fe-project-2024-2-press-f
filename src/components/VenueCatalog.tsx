@@ -14,10 +14,10 @@ export default async function VenueCatalog({venuesJson}: {venuesJson:VenueJson})
             <div style={{
                 margin: "20px",
                 display: "flex",
-                flexDirection: "column", // เปลี่ยนเป็นแนวตั้ง
-                alignItems: "center", // จัดให้อยู่ตรงกลางในแนวขวาง
-                justifyContent: "space-around", // กระจายช่องว่างระหว่าง element
-                padding: "10px",gap: "20px"
+                flexDirection: "row", 
+                alignItems: "center",
+                justifyContent: "space-around", 
+                padding: "10px"
             }}>
                 {
                     venueJsonReady.data.map((venueItem:VenueItem) => (

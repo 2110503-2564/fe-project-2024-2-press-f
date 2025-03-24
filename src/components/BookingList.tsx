@@ -10,7 +10,7 @@ export default function BookingList() {
     const dispatch = useDispatch<AppDispatch>()
 
     if (bookItems.length === 0) {
-        return <div> No Venue Booking </div>;
+        return <div> No Interview Booking </div>;
     }
 
     return (
