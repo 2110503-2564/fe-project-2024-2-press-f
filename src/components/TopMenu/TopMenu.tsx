@@ -26,7 +26,7 @@ export default async function TopMenu () {
                     </Link>
                 </div>
                 <TopMenuItem title='Job'
-                    pageRef='/venue'
+                    pageRef='/company'
                 />
                 <TopMenuItem title='Booking'
                     pageRef='/booking'
