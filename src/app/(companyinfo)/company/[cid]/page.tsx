@@ -1,14 +1,5 @@
-'use client'
 import getCompany from "@/libs/getCompany"
 import Image from "next/image"
-import DateReserve from "@/components/DateReserve";
-import { AppDispatch } from "@/redux/store";
-import { MenuItem, Select, SelectChangeEvent, TextField } from "@mui/material";
-import dayjs, { Dayjs } from "dayjs";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { BookingItem } from "../../../../../interface";
-import { addBooking } from "@/redux/features/bookSlice";
 
 export default async function CompanyDetailPage( {params} : { params: {cid:string} } ) {
 
@@ -35,6 +26,7 @@ export default async function CompanyDetailPage( {params} : { params: {cid:strin
                     height={0}
                     sizes="100vw"
                     className="rounded-lg w-[30%]"
+                    priority 
                 />
                 <div className="text-md mx-5 text-left"> 
                     <div> Name : { companyDetail.data.name } </div>
