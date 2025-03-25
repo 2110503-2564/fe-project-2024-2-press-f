@@ -46,16 +46,17 @@ export default async function TopMenu () {
                     </Link>
                     : 
                     <div className='flex flex-row'>
-                        <Link href="/api/auth/signin">
-                            <div className='flex items-center h-full px-2 text-gray-500 text-sm'>
-                                Sign-In
-                            </div>
-                        </Link>
                         <Link href="/register">
                         <div className='flex items-center h-full px-2 text-gray-500 text-sm'>
                                 Register
                             </div>
                         </Link>
+                        <Link href="/api/auth/signin">
+                            <div className='flex items-center h-full px-2 text-gray-500 text-sm'>
+                                Sign-In
+                            </div>
+                        </Link>
+                        
                     </div>
                     
                 }
