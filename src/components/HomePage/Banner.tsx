@@ -22,7 +22,7 @@ export default function Banner () {
                         Build your future with a job you love. Explore career opportunities here. 
                     </div>
                     <div className='mt-10'>
-                        <Link className="rounded-lg bg-primary py-2 px-5 text-white
+                        <Link className="rounded-lg bg-primary py-3 px-5 text-white
                             hover:shadow-xl hover:shadow-secondary transition duration-200"
                             href='/company' 
                         >
