@@ -1,8 +1,13 @@
+import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
+import AddComponent from "@/components/Interview/AddComponent";
 import getCompany from "@/libs/getCompany"
+import { getServerSession } from "next-auth";
 import Image from "next/image"
+import Link from "next/link";
 
 export default async function CompanyDetailPage({ params }: { params: { cid: string } }) {
     const companyDetail = await getCompany(params.cid);
+    const session = await getServerSession(authOptions)
 
     return (
         <main className="p-10 bg-gray-100 min-h-screen">
@@ -46,12 +51,20 @@ export default async function CompanyDetailPage({ params }: { params: { cid: str
                         <div>
                             <span className="font-semibold text-gray-900">Tel:</span> {companyDetail.data.tel}
                         </div>
+                        {/* ปุ่มขวาadd */}
+                    {
+                        (!session || !session.user.token) ? 
+                        <div className="absolute bottom-4 right-4">
+                            <Link href={`/api/auth/signin`} className="text-accent hover:underline cursor-pointer">
+                                Please login to select
+                            </Link>
+                        </div> 
+                        : <div>
+                            <AddComponent companyId={params.cid} token={session.user.token}/>
+                        </div>
+                    }
                     </div>
-
-                    {/* ปุ่มขวาล่าง */}
-                    <button className="absolute bottom-4 right-4 bg-purple-400 text-white px-6 py-2 rounded-lg shadow-md hover:bg-white hover:text-purple-500 border border-purple-500 transition">
-                    Booking
-                    </button>
+                    
                 </div>
             </div>
         </main>

@@ -21,10 +21,11 @@ export default function UpdateComponent({interviewId,token}:{interviewId:string,
             setIsLoading(true)
             if (date) {
                 const updatedData: Record<string,string> = {
-                    interviewDate: dayjs(date).format("YYYY/MM/DD"),
+                    interviewDate: dayjs(date).format("YYYY-MM-DD HH:mm"),
                 }
                 await updateInterview({interviewId, token, updatedData})
                 alert("Interview updated successfully!")
+                setIsUpdate(false)
                 router.refresh()
             }
         } catch (error) {
