@@ -11,8 +11,9 @@ export default function UpdateComponent({interviewId,token}:{interviewId:string,
     const [isUpdate, setIsUpdate] = useState<boolean>(false)
     const router = useRouter()
     
-    const handleUpdate = async () => {
-
+    const handleUpdate = async (e:React.MouseEvent) => {
+        e.stopPropagation();
+        e.preventDefault();
         if (!window.confirm("Are you sure you want to update this interview?")) {
             setIsUpdate(false)
             return
@@ -45,7 +46,7 @@ export default function UpdateComponent({interviewId,token}:{interviewId:string,
                             {isLoading ? "Updating..." : "Update"}
                         </button>
                         <button className="block rounded-md bg-primary hover:bg-accent px-2 py-2 text-white shadow-sm"
-                        onClick={()=>{setIsUpdate(false)}} disabled={isLoading}>
+                        onClick={(e)=>{{setIsUpdate(false); e.stopPropagation(); e.preventDefault();}}} disabled={isLoading}>
                             Cancel
                         </button>
                     </div>
@@ -53,7 +54,7 @@ export default function UpdateComponent({interviewId,token}:{interviewId:string,
                 </div>
                 : <div>
                     <button className="block rounded-md bg-primary hover:bg-accent px-2 py-2 text-white shadow-sm"
-                    onClick={()=>setIsUpdate(true)}>Update Interview</button>
+                    onClick={(e)=>{{setIsUpdate(true); e.stopPropagation(); e.preventDefault();}}}>Update Interview</button>
                 </div>
             }
             

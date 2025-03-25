@@ -17,7 +17,9 @@ export default async function addInterview({
     });
 
     if (!response.ok) {
-        throw new Error(`Failed to add interview: ${response.statusText}`);
+        const errorData = await response.json();
+        const errorMessage = errorData.message || `Failed to add interview: ${response.statusText}`;
+        alert(errorMessage);
     }
 
     return await response.json();

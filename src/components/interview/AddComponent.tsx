@@ -11,7 +11,9 @@ export default function AddComponent({companyId, token}:{companyId:string, token
     const [isAdd, setIsAdd] = useState<boolean>(false)
     const router = useRouter()
 
-    const handleAdd = async () => {
+    const handleAdd = async (e:React.MouseEvent) => {
+        e.stopPropagation();
+        e.preventDefault();
         if (!window.confirm("Are you sure you want to select this company?")) {
             setIsAdd(false)
             return
@@ -43,16 +45,16 @@ export default function AddComponent({companyId, token}:{companyId:string, token
                         onClick={handleAdd} disabled={isLoading}>
                             {isLoading ? "Adding..." : "Add"}
                         </button>
-                        <button className="bg-purple-400 text-white px-6 py-2 rounded-lg shadow-md hover:bg-white hover:text-purple-500 border border-purple-500 transition"
-                        onClick={()=>{setIsAdd(false)}} disabled={isLoading}>
+                        <button className="bg-purple-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-white hover:text-purple-600 border border-purple-600 transition"
+                        onClick={(e)=>{{setIsAdd(false); e.stopPropagation(); e.preventDefault();}}} disabled={isLoading}>
                             Cancel
                         </button>
                     </div>
                     <DateReserve onDateChange={(value:Dayjs) => {setDate(value)}}/>
                 </div>
                 : <div>
-                    <button className="bg-purple-400 text-white px-6 py-2 rounded-lg shadow-md hover:bg-white hover:text-purple-500 border border-purple-500 transition"
-                    onClick={()=>setIsAdd(true)}>
+                    <button className="bg-purple-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-white hover:text-purple-600 border border-purple-600 transition"
+                    onClick={(e)=>{setIsAdd(true); e.stopPropagation(); e.preventDefault();}}>
                         Add Interview
                     </button>
                 </div> 

@@ -8,7 +8,9 @@ export default function DeleteComponent({interviewId,token}:{interviewId:string,
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const router = useRouter()
     
-    const handleDelete = async () => {
+    const handleDelete = async (e:React.MouseEvent) => {
+        e.stopPropagation();
+        e.preventDefault();
         if (!window.confirm("Are you sure you want to delete this interview?")) return
         try {
             setIsLoading(true)

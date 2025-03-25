@@ -8,7 +8,13 @@ export interface BookingItem {
 export interface InterviewItem {
   _id: string,
   interviewDate: string,
-  user: string,
+  user: {
+    _id: string,
+    name: string,
+    role: string,
+    email: string,
+    id: string,
+  },
   company: {
     _id: string,
     name: string,
@@ -24,7 +30,8 @@ export  interface InterviewJson {
   success: boolean,
   count: number,
   pagination: Object,
-  data: InterviewItem[]
+  data: InterviewItem[],
+  userRole: string,
 }
 
 export interface CompanyItem {
