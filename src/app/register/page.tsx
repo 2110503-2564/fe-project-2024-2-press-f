@@ -1,6 +1,4 @@
 'use client'
-
-import DateReserve from "@/components/DateReserve";
 import { AppDispatch } from "@/redux/store";
 import { MenuItem, Select, SelectChangeEvent, TextField } from "@mui/material";
 import dayjs, { Dayjs } from "dayjs";
@@ -8,39 +6,43 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { BookingItem } from "../../../interface";
 import { addBooking } from "@/redux/features/bookSlice";
+import userRegister from "@/libs/userRegister";
+import { useRouter } from "next/navigation";
 
 export default function Booking() {
 
     const [nameLastname, setNameLastname] = useState("");
     const [contactNumber, setContactNumber] = useState("");
-    const [venue, setVenue] = useState("");
-    const [date, setDate] = useState<Dayjs | null>(null);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [isLoading, setIsLoading] = useState<boolean>(false)
+    const router = useRouter()
 
-    const dispatch = useDispatch<AppDispatch>()
-
-    const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setNameLastname(event.target.value)
-    };
-
-    const handleContactChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setContactNumber(event.target.value)
-    };
-
-    const handleVenueChange = (event: SelectChangeEvent) => {
-        setVenue(event.target.value);
-    };
-
-    const makeBooking = () => {
-        if (nameLastname && contactNumber && venue && date) {
-            const item:BookingItem = {
-                nameLastname: nameLastname,
-                tel: contactNumber,
-                company: venue,
-                bookDate: dayjs(date).format("YYYY/MM/DD"),
+    const handleRegister = async (e:React.MouseEvent) => {
+            e.stopPropagation();
+            e.preventDefault();
+            if (!window.confirm("Are you sure your information correct?")) {
+                return
             }
-            dispatch(addBooking(item))
+            try {
+                if (nameLastname && contactNumber && email && password) {
+                    const Data: Record<string,string> = {
+                        name: nameLastname,
+                        tel: contactNumber,
+                        email: email,
+                        password: password,
+                    }
+                    await userRegister(Data)
+                    alert("Register successfully!")
+                    router.refresh()
+                }
+            } catch (error) {
+                console.log(error)
+            } finally {
+                router.push('/api/auth/signin?callbackUrl=/')
+                router.refresh()
+            }
         }
-    }
 
     return (
         <main className="w-[100%] flex flex-col items-center space-y-4">
@@ -48,27 +50,27 @@ export default function Booking() {
                 <div className="flex flex-col p-5 space-y-4">
                 <TextField variant="outlined" name="Name" label="Name"
                     className="bg-background my-2" required
-                    value={nameLastname} onChange={handleNameChange}
+                    value={nameLastname} onChange={(event) => setNameLastname(event.target.value)}
                 />
                 <TextField variant="outlined" name="Tel" label="Tel"
                     className="bg-background my-2" required
-                    value={contactNumber} onChange={handleContactChange}
+                    value={contactNumber} onChange={(event) => setContactNumber(event.target.value)}
                 />
                 <TextField variant="outlined" name="Email" label="Email"
                     className="bg-background my-2" required
-                    value={contactNumber} onChange={handleContactChange}
+                    value={email} onChange={(event) => setEmail(event.target.value)}
                 />
                 <TextField variant="outlined" name="Password" label="Password"
                     className="bg-background my-2" type="password" required
-                    value={contactNumber} onChange={handleContactChange}
+                    value={password} onChange={(event) => setPassword(event.target.value)}
                 />
 
                 <button
                     className="bg-purple-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-white hover:text-purple-500 border border-purple-500 transition my-2"
-                    // onClick={handleAdd}
-                    // disabled={isLoading}
+                    onClick={handleRegister}
+                    disabled={isLoading}
                 >
-                    Register
+                    {isLoading ? "Register..." : "Register"}
                 </button>
                 </div>
                 
