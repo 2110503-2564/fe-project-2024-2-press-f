@@ -39,7 +39,7 @@ export default async function TopMenu () {
                 />
                 {
                     session? 
-                    <Link href="/api/auth/signout">
+                    <Link href="/api/auth/signout?callbackUrl=/">
                         <div className='flex items-center h-full px-2 text-gray-500 text-sm'>
                             Sign-Out
                         </div>
