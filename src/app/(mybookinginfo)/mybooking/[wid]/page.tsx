@@ -5,6 +5,7 @@ import { getServerSession } from "next-auth";
 import { InterviewItem } from "../../../../../interface";
 import UpdateComponent from "@/components/Interview/UpdateComponent";
 import DeleteComponent from "@/components/Interview/DeleteComponent";
+import getUserProfile from "@/libs/getUserProfile";
 
 export default async function InterviewDetailPage({ params }: { params: { wid: string } }) {
     
@@ -25,8 +26,10 @@ export default async function InterviewDetailPage({ params }: { params: { wid: s
     return (
         <main className="p-10 bg-gray-100 min-h-screen">
             <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">
-                <h1 className="text-2xl font-bold mb-4">{interviewData.company.name}</h1>
-
+                <h1 className="text-2xl font-bold">{interviewData.company.name}</h1>
+                {
+                    (interviewData.user.role === 'admin') ? <h2 className="text-xl font-medium mb-4">Username: {interviewData.user.name}</h2> : <div className="mb-4"></div>
+                }
                 <div className="text-lg mb-2">
                     <strong>Company Description:</strong> {interviewData.company.description}
                 </div>
