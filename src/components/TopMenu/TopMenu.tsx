@@ -28,13 +28,15 @@ export default async function TopMenu () {
                 <TopMenuItem title='Job'
                     pageRef='/company'
                 />
-                <TopMenuItem title='Booking'
+                {/* <TopMenuItem title='Booking'
                     pageRef='/booking'
-                />
+                /> */}
             </div>
 
             <div className='flex flex-row absolute right-5 h-full'>
-                <TopMenuItem title='MyBooking' pageRef='/mybooking'/>
+                <TopMenuItem title='MyBooking' 
+                    pageRef='/mybooking'
+                />
                 {
                     session? 
                     <Link href="/api/auth/signout">
