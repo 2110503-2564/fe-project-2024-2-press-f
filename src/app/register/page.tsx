@@ -45,7 +45,7 @@ export default function Booking() {
         }
 
     return (
-        <main className="w-[100%] flex flex-col items-center space-y-4">
+        <main className="w-[100%] flex flex-col items-center space-y-4 bg-signinbg min-h-screen" >
                 <div className="fixed top-40 bg-registermenu rounded-md transition space-y-4 w-[25%]">
                     <div className="flex flex-col p-5 space-y-4">
                         <TextField variant="outlined" name="Name" label="Name"
