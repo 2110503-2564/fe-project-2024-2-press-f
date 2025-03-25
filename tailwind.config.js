@@ -12,6 +12,8 @@ module.exports = {
         'primary': '#5c10a2',
         'secondary': '#ebdbff',
         'accent': '#7972f3',
+        'signinbg': '#161b22',
+        'registermenu': '#0d1117',
        },
     },
   },

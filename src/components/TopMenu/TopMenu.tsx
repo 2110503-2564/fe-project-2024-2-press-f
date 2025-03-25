@@ -47,7 +47,7 @@ export default async function TopMenu () {
                     : 
                     <div className='flex flex-row'>
                         <Link href="/register">
-                        <div className='flex items-center h-full px-2 text-gray-500 text-sm'>
+                            <div className='flex items-center h-full px-2 text-gray-500 text-sm'>
                                 Register
                             </div>
                         </Link>

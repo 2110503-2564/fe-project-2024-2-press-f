@@ -46,36 +46,129 @@ export default function Booking() {
 
     return (
         <main className="w-[100%] flex flex-col items-center space-y-4">
-            <div className="fixed top-40 bg-secondary rounded-md hover:bg-purple-300 transition space-y-4 w-[25%]">
-                <div className="flex flex-col p-5 space-y-4">
-                <TextField variant="outlined" name="Name" label="Name"
-                    className="bg-background my-2" required
-                    value={nameLastname} onChange={(event) => setNameLastname(event.target.value)}
-                />
-                <TextField variant="outlined" name="Tel" label="Tel"
-                    className="bg-background my-2" required
-                    value={contactNumber} onChange={(event) => setContactNumber(event.target.value)}
-                />
-                <TextField variant="outlined" name="Email" label="Email"
-                    className="bg-background my-2" required
-                    value={email} onChange={(event) => setEmail(event.target.value)}
-                />
-                <TextField variant="outlined" name="Password" label="Password"
-                    className="bg-background my-2" type="password" required
-                    value={password} onChange={(event) => setPassword(event.target.value)}
-                />
-
-                <button
-                    className="bg-purple-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-white hover:text-purple-500 border border-purple-500 transition my-2"
-                    onClick={handleRegister}
-                    disabled={isLoading}
-                >
-                    {isLoading ? "Register..." : "Register"}
-                </button>
+                <div className="fixed top-40 bg-registermenu rounded-md transition space-y-4 w-[25%]">
+                    <div className="flex flex-col p-5 space-y-4">
+                        <TextField variant="outlined" name="Name" label="Name"
+                            className="my-2" required
+                            InputLabelProps={{ className: "text-gray" }}
+                            InputProps={{ className: "text-white" }}
+                            sx={{
+                                "& .MuiOutlinedInput-root": {
+                                    "& fieldset": {
+                                        borderColor: "gray",
+                                    },
+                                    "&:hover fieldset": {
+                                        borderColor: "gray",
+                                    },
+                                    "&.Mui-focused fieldset": {
+                                        borderColor: "white",
+                                    }
+                                },
+                                input: { 
+                                    color: "white"
+                                }, 
+                                "& .MuiInputLabel-root": {
+                                    color: "gray",
+                                },
+                                "& .Mui-focused .MuiInputLabel-root": {
+                                    color: "gray"
+                                },
+                            }}
+                            value={nameLastname} onChange={(event) => setNameLastname(event.target.value)}
+                        />
+                        <TextField variant="outlined" name="Tel" label="Tel"
+                            className="my-2" required
+                            InputLabelProps={{ className: "text-gray" }}
+                            InputProps={{ className: "text-white" }}
+                            sx={{
+                                "& .MuiOutlinedInput-root": {
+                                    "& fieldset": {
+                                        borderColor: "gray",
+                                    },
+                                    "&:hover fieldset": {
+                                        borderColor: "gray",
+                                    },
+                                    "&.Mui-focused fieldset": {
+                                        borderColor: "white",
+                                    }
+                                },
+                                input: { 
+                                    color: "white"
+                                }, 
+                                "& .MuiInputLabel-root": {
+                                    color: "gray",
+                                },
+                                "& .Mui-focused .MuiInputLabel-root": {
+                                    color: "gray"
+                                },
+                            }}
+                            value={contactNumber} onChange={(event) => setContactNumber(event.target.value)}
+                        />
+                        <TextField variant="outlined" name="Email" label="Email"
+                            className="my-2" required
+                            InputLabelProps={{ className: "text-gray" }}
+                            InputProps={{ className: "text-white" }}
+                            sx={{
+                                "& .MuiOutlinedInput-root": {
+                                    "& fieldset": {
+                                        borderColor: "gray",
+                                    },
+                                    "&:hover fieldset": {
+                                        borderColor: "gray",
+                                    },
+                                    "&.Mui-focused fieldset": {
+                                        borderColor: "white",
+                                    }
+                                },
+                                input: { 
+                                    color: "white"
+                                }, 
+                                "& .MuiInputLabel-root": {
+                                    color: "gray",
+                                },
+                                "& .Mui-focused .MuiInputLabel-root": {
+                                    color: "gray"
+                                },
+                            }}
+                            value={email} onChange={(event) => setEmail(event.target.value)}
+                        />
+                        <TextField variant="outlined" name="Password" label="Password"
+                            className="my-2" type="password" required
+                            InputLabelProps={{ className: "text-gray" }}
+                            InputProps={{ className: "text-white" }}
+                            sx={{
+                                "& .MuiOutlinedInput-root": {
+                                    "& fieldset": {
+                                        borderColor: "gray",
+                                    },
+                                    "&:hover fieldset": {
+                                        borderColor: "gray",
+                                    },
+                                    "&.Mui-focused fieldset": {
+                                        borderColor: "white",
+                                    }
+                                },
+                                input: { 
+                                    color: "white"
+                                }, 
+                                "& .MuiInputLabel-root": {
+                                    color: "gray",
+                                },
+                                "& .Mui-focused .MuiInputLabel-root": {
+                                    color: "gray"
+                                },
+                            }}
+                            value={password} onChange={(event) => setPassword(event.target.value)}
+                        />
+                        <button
+                            className="bg-blue-600 text-white px-6 py-2 rounded-lg my-2"
+                            onClick={handleRegister}
+                            disabled={isLoading}
+                        >
+                            {isLoading ? "Register..." : "Register"}
+                        </button>
+                    </div>
                 </div>
-                
-            </div>
-            
         </main>
     )
 }
