@@ -3,8 +3,8 @@ import getInterview from "@/libs/manageInterview/getInterview";
 import dayjs from "dayjs";
 import { getServerSession } from "next-auth";
 import { InterviewItem } from "../../../../../interface";
-import UpdateComponent from "@/components/Interview/UpdateComponent";
-import DeleteComponent from "@/components/Interview/DeleteComponent";
+import UpdateComponent from "@/components/interview/UpdateComponent";
+import DeleteComponent from "@/components/interview/DeleteComponent";
 import getUserProfile from "@/libs/getUserProfile";
 
 export default async function InterviewDetailPage({ params }: { params: { wid: string } }) {

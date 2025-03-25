@@ -1,7 +1,7 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions"
 import { getServerSession } from "next-auth"
 import getInterviews from "@/libs/manageInterview/getInterviews"
-import InterviewList from "@/components/Interview/InterviewList"
+import InterviewList from "@/components/interview/InterviewList"
 import { redirect } from "next/navigation"
 import Link from "next/link"
 
