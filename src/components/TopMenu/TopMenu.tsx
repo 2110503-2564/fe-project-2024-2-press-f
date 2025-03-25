@@ -25,7 +25,7 @@ export default async function TopMenu () {
                         <img src="/img/homeicon.png" className={styles.homeicon}/>
                     </Link>
                 </div>
-                <TopMenuItem title='Job'
+                <TopMenuItem title='Explore'
                     pageRef='/company'
                 />
                 {/* <TopMenuItem title='Booking'

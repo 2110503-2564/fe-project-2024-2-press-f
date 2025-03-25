@@ -26,7 +26,7 @@ export default function Banner () {
                             hover:shadow-xl hover:shadow-secondary transition duration-200"
                             href='/company' 
                         >
-                            Explore
+                            Get Started
                         </Link>
                     </div>
                 </div>
