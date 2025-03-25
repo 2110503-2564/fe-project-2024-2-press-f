@@ -22,7 +22,7 @@ export default async function CompanyCatalog({companysJson}: {companysJson:Compa
                 {
                     companyJsonReady.data.map((companyItem:CompanyItem) => (
                         <Link href={`/company/${companyItem._id}`} 
-                            className="w-2/5 m-10"
+                            className="w-2/5 m-10" key={companyItem._id}
                         >
                             <Card companyName={companyItem.name} imgSrc={companyItem.picture} />
                         </Link>

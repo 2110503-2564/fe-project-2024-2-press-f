@@ -1,5 +1,5 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
-import AddComponent from "@/components/interview/AddComponent";
+import AddComponent from "@/components/Interview/AddComponent";
 import getCompany from "@/libs/getCompany"
 import { getServerSession } from "next-auth";
 import Image from "next/image"
