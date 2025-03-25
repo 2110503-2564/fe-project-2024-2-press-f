@@ -33,6 +33,8 @@ export default function AddComponent({companyId, token}:{companyId:string, token
             console.log(error)
         } finally {
             setIsLoading(false)
+            router.push('/mybooking')
+            router.refresh()
         }
     }
 
