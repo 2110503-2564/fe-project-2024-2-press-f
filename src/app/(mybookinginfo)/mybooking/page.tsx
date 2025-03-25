@@ -3,6 +3,7 @@ import { getServerSession } from "next-auth"
 import getInterviews from "@/libs/manageInterview/getInterviews"
 import InterviewList from "@/components/Interview/InterviewList"
 import { redirect } from "next/navigation"
+import Link from "next/link"
 
 export default async function MyBookingPage() {
 
@@ -16,6 +17,12 @@ export default async function MyBookingPage() {
     return (
         <main>
             <InterviewList interviewJson={interview} token={session.user.token}/>
+            {
+                (interview.userRole !== 'admin' && interview.count <3) ?
+                <Link className="block rounded-md bg-primary hover:bg-accent px-2 py-2 w-auto m-4 justify-self-center text-center text-white shadow-sm" href={'/company'}>
+                    Explore More
+                </Link> : null
+            }
         </main>
     )
 }
